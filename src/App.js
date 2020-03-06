@@ -7,32 +7,20 @@ import Login from "./components/Login";
 import Products from "./components/Products";
 import Admin from "./components/Admin";
 import PrivateRoute from "./components/PrivateRoute";
-import { fakeAuth } from "./components/Login";
+import NavbarMenu from "./components/Navbar/NavbarMenu";
 function App() {
   return (
     <Router>
       <div className="App">
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/category">Category</Link>
-          </li>
-          <li>
-            <Link to="/products">Products</Link>
-          </li>
-          <li>
-            <Link to="/admin">Admin area</Link>
-          </li>
-        </ul>
+        <NavbarMenu />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/category" component={Category} />
           <Route path="/products" component={Products} />
           <Route path="/login" component={Login} />
           <PrivateRoute
-            authed={fakeAuth.isAuthenticated}
+            exact
+            // authed={fakeAuth.isAuthenticated}
             path="/admin"
             component={Admin}
           />

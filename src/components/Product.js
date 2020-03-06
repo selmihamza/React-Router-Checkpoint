@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Product({ match, data }) {
   console.log(match);
-  let product = data.find(p => p.id == match.params.productId);
+  let product = data.find(p => p.id === parseInt(match.params.productId));
 
   return (
     <div>
